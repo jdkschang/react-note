@@ -1,16 +1,13 @@
 import React from 'react'
 
-let NotesList = React.createClass({
-    render: function () {
-        let notes = this.props.notes.map((note, index) => {
-            return <li className="list-group-item" key={index}>{note['.value']}</li>
-        })
-        return (
-            <ul className="list-group">
-                {notes}
-            </ul>
-        )
-    }
-});
+const NotesList = ({notes}) => {
+    return (
+        <ul className="list-group">
+            {notes.map((note, index) => (
+                <li className="list-group-item" key={index}>{note}</li>
+            ))}
+        </ul>
+    )
+};
 
-module.exports = NotesList;
+export default NotesList
