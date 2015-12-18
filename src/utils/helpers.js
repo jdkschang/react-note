@@ -12,8 +12,12 @@ let helpers = {
     getGithubInfo: function (username) {
         return axios.all([getRepos(username), getUserInfo(username)])
         .then( function (arr) {
-            repos: arr[0].data,
-            bio: arr[1].data
+            return {
+                repos: arr[0].data,
+                bio: arr[1].data
+            }
         })
     }
 }
+
+module.exports = helpers;
